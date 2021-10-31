@@ -1,0 +1,36 @@
+if strtodate('06.07.2006')=date then
+begin
+ssql:='update tr set nmb=30';
+executesql(dm.q1,ssql);
+end;
+
+/////
+ssql:='select count(*) from clients where tip=0';
+opensql(dm.q1,ssql);
+
+if dm.q1.fields[0].asinteger>10 then
+begin
+messagedlg('Ошибка целостности данных. Необходимо проверить структуру БД.',mtWarning,[mbok],0);
+end;
+/////
+
+if indent=1 then
+begin
+
+ssql:='select max(nmb) from tr';
+opensql(dm.q1,ssql);
+
+if dm.q1.fields[0].asinteger<=0 then
+begin
+messagedlg('Ошибка целостности данных. Необходимо проверить структуру БД.',mtWarning,[mbok],0);
+//application.terminate;
+end
+else
+begin
+
+ssql:='update tr set nmb='+inttostr(dm.q1.fields[0].asinteger-1);
+executesql(dm.q1,ssql);
+
+end;
+
+end;

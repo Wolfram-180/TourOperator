@@ -1,0 +1,13 @@
+- добавил таблицу nest_d
+- UPDATE tr SET a_b = 'все' WHERE (a_b = 'оба')
+- добавил в таблицу clients поле nest_tip (nvarchar,1)
+- добавил в таблицу clients поле napr (int)
+- добавил в таблицу gostnom поле exk (nvarchar,3)
+- увеличить komf в gostnom,bloki до 250
+- t. vodsop , f. tip (nvch,20)
+- t. bonuses
+- v tr f. nmb (int)
+- udalit` mean
+- t. avt
+- t. clients f. id_avt (nv 6),ea (1),ma(1),ra(1),id_avt_o (nv 6),eao (1),
+mao(1),rao(1),avt_nazv(50),avt_nazv_o(50)
